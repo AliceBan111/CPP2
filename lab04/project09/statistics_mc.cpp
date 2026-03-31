@@ -15,7 +15,7 @@ vector<vector<double>> StatisticsMean::get_results_so_far() const
 {
     vector<vector<double>> Results(1);
 
-    Results[0].resize(1); // 为什么要resize？
+    Results[0].resize(1); 
     Results[0][0] = running_sum / paths_done;
 
     return Results;
