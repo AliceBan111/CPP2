@@ -46,11 +46,11 @@ void simple_monte_carlo7(const VanillaOption &the_option,
     }
 
 
-	for (unsigned long i = 0; i < number_of_paths; i++)
-	{
-		double thisGaussian = get_one_gaussian_by_box_muller();
-		thisspot = movedspot * exp(rootVariance * thisGaussian);
-		double thisPayOff = the_option.get_option_payoff(thisspot);
-		gatherer.dump_one_result(thisPayOff * discounting);
-	}
+	// for (unsigned long i = 0; i < number_of_paths; i++)
+	// {
+	// 	double thisGaussian = get_one_gaussian_by_box_muller();
+	// 	thisspot = movedspot * exp(rootVariance * thisGaussian);
+	// 	double thisPayOff = the_option.get_option_payoff(thisspot);
+	// 	gatherer.dump_one_result(thisPayOff * discounting);
+	// }
 }
