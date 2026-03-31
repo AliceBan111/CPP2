@@ -15,10 +15,12 @@ vector<vector<double>> StatisticsStd::get_results_so_far() const {
 
   double average_payoff = get_average_payoff();
   double std_payoff = get_std_payoff();
+  double std_error = get_standard_error();
   double CI = get_confidence_interval();
 
   Results[0].push_back(average_payoff);
   Results[0].push_back(std_payoff);
+  Results[0].push_back(std_error);
   Results[0].push_back(CI);
 
   return Results;

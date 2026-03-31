@@ -30,18 +30,12 @@ void simple_monte_carlo7(const VanillaOption &the_option,
 		thisspot = movedspot * exp(rootVariance * thisGaussian);
 		double thisPayOff = the_option.get_option_payoff(thisspot);
 
-        gatherer.dump_one_result(thisPayOff);
+        gatherer.dump_one_result(thisPayOff * discounting);
         paths_done++;
 
-        const StatisticsStd* ptr =
-            dynamic_cast<const StatisticsStd*>(&gatherer);
+        double std_error = gatherer.get_standard_error();
 
-        double std_error = 1e10;
-
-        if (ptr)
-            std_error = ptr->get_standard_error();
-
-        if (stopping_rule.should_stop(paths_done, std_error))
+        if (paths_done >= 100 && stopping_rule.should_stop(paths_done, std_error))
             break;
     }
 

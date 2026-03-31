@@ -16,7 +16,7 @@ int main()
     double spot = 95.0;
     double vol = 0.2;
     double r = 0.06;
-    unsigned long number_of_paths = 10000000;
+    unsigned long number_of_paths = 10000;
 
     cout << "Do you want to enter your own option paramters (1) or use defaults (2)?\n";
     int choice;
@@ -56,8 +56,8 @@ int main()
     StatisticsStd gatherer;
     ConvergenceTable gatherer_two(gatherer);
 
-    StopByPaths stop_paths(1000000);
-    StopByPrecision stop_precision(0.01);
+    StopByPaths stop_paths(number_of_paths);
+    StopByPrecision stop_precision(0.1);
 
     StopEither stop_rule(stop_paths, stop_precision);
 

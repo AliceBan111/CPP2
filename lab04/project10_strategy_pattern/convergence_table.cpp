@@ -47,3 +47,8 @@ std::vector<std::vector<double>> ConvergenceTable::get_results_so_far() const
     }
     return this_result;
 }
+
+double ConvergenceTable::get_standard_error() const
+{
+    return Inner->get_standard_error();
+}

@@ -12,6 +12,7 @@ public:
     virtual StatisticsMC *clone() const;
     virtual void dump_one_result(double result);
     virtual std::vector<std::vector<double>> get_results_so_far() const;
+    virtual double get_standard_error() const;
 
 private:
     Wrapper<StatisticsMC> Inner;

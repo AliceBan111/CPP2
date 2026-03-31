@@ -9,6 +9,7 @@ public:
     StatisticsMC() {};
     virtual void dump_one_result(double result) = 0;
     virtual std::vector<std::vector<double>> get_results_so_far() const = 0;
+    virtual double get_standard_error() const { return 1e10; }
     virtual StatisticsMC *clone() const = 0;
     virtual ~StatisticsMC() {}
 
