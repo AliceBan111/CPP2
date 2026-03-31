@@ -51,4 +51,4 @@ std::vector<std::vector<double>> ConvergenceTable::get_results_so_far() const
 double ConvergenceTable::get_standard_error() const
 {
     return Inner->get_standard_error();
-}
+} // only Inner has the standard error, so we call Inner's get_standard_error() method to retrieve it.
