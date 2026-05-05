@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+
+# Build folders
+x64/
+Debug/
+Release/
+
+# NuGet / xlw
+packages/
+
+# Compiled files
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.xll
+
+# Logs
+*.log
+
+# User-specific
+*.user
+*.suo
+*.vcxproj.user
