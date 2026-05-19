@@ -20,14 +20,13 @@ short // echoes a short
 EchoShort(short x // number to be echoed
        );
 
-double EuropeanCallMC(
-    double spot,
-    double strike,
-    double r,
-    double vol,
+double EuropeanCallOptionPricer(
     double expiry,
-    int number_of_paths,
-    int number_of_experiments
+    double strike,
+    double spot,
+    double vol,
+    double r,
+    int number_of_paths
 );
 
 #endif

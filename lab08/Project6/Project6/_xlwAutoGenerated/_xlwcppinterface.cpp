@@ -80,23 +80,22 @@ EXCEL_END
 namespace
 {
 XLRegistration::Arg
-EuropeanCallMCArgs[]=
+EuropeanCallOptionPricerArgs[]=
 {
-{ "spot","too lazy to comment this one ","B"},
-{ "strike","too lazy to comment this one ","B"},
-{ "r","too lazy to comment this one ","B"},
-{ "vol","too lazy to comment this one ","B"},
 { "expiry","too lazy to comment this one ","B"},
-{ "number_of_paths","too lazy to comment this one ","B"},
-{ "number_of_experiments","too lazy to comment this one ","B"}
+{ "strike","too lazy to comment this one ","B"},
+{ "spot","too lazy to comment this one ","B"},
+{ "vol","too lazy to comment this one ","B"},
+{ "r","too lazy to comment this one ","B"},
+{ "number_of_paths","too lazy to comment this one ","B"}
 };
   XLRegistration::XLFunctionRegistrationHelper
-registerEuropeanCallMC("xlEuropeanCallMC",
-"EuropeanCallMC",
+registerEuropeanCallOptionPricer("xlEuropeanCallOptionPricer",
+"EuropeanCallOptionPricer",
 "too lazy to comment this function ",
 LibraryName,
-EuropeanCallMCArgs,
-7
+EuropeanCallOptionPricerArgs,
+6
 ,false
 ,false
 ,""
@@ -112,14 +111,13 @@ EuropeanCallMCArgs,
 extern "C"
 {
 LPXLFOPER EXCEL_EXPORT
-xlEuropeanCallMC(
-double spot,
-double strike,
-double r,
-double vol,
+xlEuropeanCallOptionPricer(
 double expiry,
-double number_of_pathsa,
-double number_of_experimentsa)
+double strike,
+double spot,
+double vol,
+double r,
+double number_of_pathsa)
 {
 EXCEL_BEGIN;
 
@@ -134,18 +132,14 @@ EXCEL_BEGIN;
 int number_of_paths(
 	static_cast<int>(number_of_pathsa));
 
-int number_of_experiments(
-	static_cast<int>(number_of_experimentsa));
-
 double result(
-	EuropeanCallMC(
-		spot,
-		strike,
-		r,
-		vol,
+	EuropeanCallOptionPricer(
 		expiry,
-		number_of_paths,
-		number_of_experiments)
+		strike,
+		spot,
+		vol,
+		r,
+		number_of_paths)
 	);
 return XlfOper(result);
 EXCEL_END
